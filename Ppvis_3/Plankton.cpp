@@ -183,7 +183,7 @@ void Plankton::planktonMovement(std::vector<Plankton>& vPlankton, int& newX, int
     }
     return;
 };
-void Plankton::producePlankton(int& newX, int& newY, bool* poz)
+void Plankton::producePlankton(int& newX, int& newY, bool* positions)
 {
     int xA = getX();
     int yA = getY();
@@ -193,7 +193,7 @@ void Plankton::producePlankton(int& newX, int& newY, bool* poz)
     int summpoz = 0;
     for (int pos_num = 0; pos_num < 8; pos_num++)
     {
-        if (poz[pos_num] == false)
+        if (positions[pos_num] == false)
         {
             summpoz++;
         }
@@ -206,7 +206,7 @@ void Plankton::producePlankton(int& newX, int& newY, bool* poz)
     int allpoz = 0;
     while (allpoz < 8)
     {
-        if (poz[randpoz] == true)
+        if (positions[randpoz] == true)
         {
             if (randpoz == 0)
             {
@@ -276,7 +276,7 @@ void Plankton::move(Map& userMap, std::vector<Plankton>& vPlankton)
     x = newX;
     y = newY;
 }
-void Plankton::PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, bool* poz, std::vector<int>& restPlank_iter)
+void Plankton::PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, bool* positions, std::vector<int>& restPlank_iter)
 {
     int xA = getX();
     int yA = getY();
@@ -284,9 +284,9 @@ void Plankton::PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, boo
 
     for (int pos_num = 0; pos_num < 8; pos_num++)
     {
-        poz[pos_num] = false;
+        positions[pos_num] = false;
     }
-    poz[8] = true;
+    positions[8] = true;
     for (int i = 0; i < qr; i++)
     {
         bool lifeR = vPlankton[i].Ocean_life::getLife();
@@ -297,42 +297,42 @@ void Plankton::PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, boo
 
             if (((xA - 1) == xR) && ((yA - 1) == yR))
             {
-                poz[0] = true;
+                positions[0] = true;
                 restPlank_iter.push_back(i);
             }
             if ((xA == xR) && ((yA - 1) == yR))
             {
-                poz[1] = true;
+                positions[1] = true;
                 restPlank_iter.push_back(i);
             }
             if (((xA + 1) == xR) && ((yA - 1) == yR))
             {
-                poz[2] = true;
+                positions[2] = true;
                 restPlank_iter.push_back(i);
             }
             if (((xA + 1) == xR) && (yA == yR))
             {
-                poz[3] = true;
+                positions[3] = true;
                 restPlank_iter.push_back(i);
             }
             if (((xA + 1) == xR) && ((yA + 1) == yR))
             {
-                poz[4] = true;
+                positions[4] = true;
                 restPlank_iter.push_back(i);
             }
             if ((xA == xR) && ((yA + 1) == yR))
             {
-                poz[5] = true;
+                positions[5] = true;
                 restPlank_iter.push_back(i);
             }
             if (((xA - 1) == xR) && ((yA + 1) == yR))
             {
-                poz[6] = true;
+                positions[6] = true;
                 restPlank_iter.push_back(i);
             }
             if (((xA - 1) == xR) && (yA == yR))
             {
-                poz[7] = true;
+                positions[7] = true;
                 restPlank_iter.push_back(i);
             }
             if ((xA == xR) && (yA == yR))
@@ -343,7 +343,7 @@ void Plankton::PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, boo
     }
     return;
 }
-void Plankton::checkCoordforNewBirth(std::vector<Plankton>& vPlankton, Map& userMap, bool* poz)
+void Plankton::checkCoordforNewBirth(std::vector<Plankton>& vPlankton, Map& userMap, bool* positions)
 {
     int xA = getX();
     int yA = getY();
@@ -351,24 +351,24 @@ void Plankton::checkCoordforNewBirth(std::vector<Plankton>& vPlankton, Map& user
 
     for (int iterat = 0; iterat < 8; iterat++)
     {
-        poz[iterat] = true;
+        positions[iterat] = true;
     }
-    poz[8] = false;
+    positions[8] = false;
     if ((xA - 1) < 1)
     {
-        poz[0] = poz[7] = poz[6] = false;
+        positions[0] = positions[7] = positions[6] = false;
     }
     if ((yA - 1) < 1)
     {
-        poz[0] = poz[1] = poz[2] = false;
+        positions[0] = positions[1] = positions[2] = false;
     }
     if ((xA + 1) > userMap.userLength)
     {
-        poz[2] = poz[3] = poz[4] = false;
+        positions[2] = positions[3] = positions[4] = false;
     }
     if ((yA + 1) > userMap.userWidth)
     {
-        poz[6] = poz[5] = poz[4] = false;
+        positions[6] = positions[5] = positions[4] = false;
     }
 
     for (int i = 0; i < qr; i++)
@@ -381,35 +381,35 @@ void Plankton::checkCoordforNewBirth(std::vector<Plankton>& vPlankton, Map& user
 
             if (((xA - 1) == xR) && ((yA - 1) == yR))
             {
-                poz[0] = false;
+                positions[0] = false;
             }
             if ((xA == xR) && ((yA - 1) == yR))
             {
-                poz[1] = false;
+                positions[1] = false;
             }
             if (((xA + 1) == xR) && ((yA - 1) == yR))
             {
-                poz[2] = false;
+                positions[2] = false;
             }
             if (((xA + 1) == xR) && (yA == yR))
             {
-                poz[3] = false;
+                positions[3] = false;
             }
             if (((xA + 1) == xR) && ((yA + 1) == yR))
             {
-                poz[4] = false;
+                positions[4] = false;
             }
             if ((xA == xR) && ((yA + 1) == yR))
             {
-                poz[5] = false;
+                positions[5] = false;
             }
             if (((xA - 1) == xR) && ((yA + 1) == yR))
             {
-                poz[6] = false;
+                positions[6] = false;
             }
             if (((xA - 1) == xR) && (yA == yR))
             {
-                poz[7] = false;
+                positions[7] = false;
             }
         }
     }

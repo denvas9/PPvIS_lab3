@@ -30,9 +30,9 @@ int main(void)
             {
                 start();
             }
-            catch (MyInputException& e)
+            catch (MyInputException& except)
             {
-                cout << e.what() << endl;
+                cout << except.what() << endl;
                 cin.clear();
                 cin.sync();
             }
@@ -43,13 +43,13 @@ int main(void)
             {
                 load();
             }
-            catch (MyFileException& e)
+            catch (MyFileException& except)
             {
-                cout << e.what() << endl;
+                cout << except.what() << endl;
             }
-            catch (MyInputException& e)
+            catch (MyInputException& except)
             {
-                cout << e.what() << endl;
+                cout << except.what() << endl;
             }
         }
         else if (command == 5)

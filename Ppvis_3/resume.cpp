@@ -69,16 +69,16 @@ void resume(vector<Plankton>& vPlankton, vector<Whale>& vWhale, Map userMap)
             {
                 int x_plankton = vPlankton[plankton_iter].getX();
                 int y_plankton = vPlankton[plankton_iter].getY();
-                bool poz[9];
+                bool positions[9];
                 vector<int> restHPPlankton_iters;
                 int birth_indicat = 1;
-                vPlankton[plankton_iter].PlanktonCheck(vPlankton, userMap, poz, restHPPlankton_iters);
+                vPlankton[plankton_iter].PlanktonCheck(vPlankton, userMap, positions, restHPPlankton_iters);
                 int rnd_choice = rand() % 2;
                 if (rnd_choice == 0)
                 {
                     int newX, newY;
-                    vPlankton[plankton_iter].checkCoordforNewBirth(vPlankton, userMap, poz);
-                    vPlankton[plankton_iter].producePlankton(newX, newY, poz);
+                    vPlankton[plankton_iter].checkCoordforNewBirth(vPlankton, userMap, positions);
+                    vPlankton[plankton_iter].producePlankton(newX, newY, positions);
                     if ((newX != x_plankton) || (newY != y_plankton))
                     {
                         Plankton tempPlankton(newX, newY);

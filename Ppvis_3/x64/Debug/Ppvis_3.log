@@ -1,2 +1,19 @@
-﻿  start.cpp
+﻿  MyException.cpp
+  Ocean_life.cpp
+  Plankton.cpp
+D:\Trash\ppvis\Ppvis_3\Plankton.cpp(283,30): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Trash\ppvis\Ppvis_3\Plankton.cpp(350,30): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Ppvis_3.cpp
+D:\Trash\ppvis\Ppvis_3\Ppvis_3.cpp(17,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Whale.cpp
+D:\Trash\ppvis\Ppvis_3\Whale.cpp(41,27): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  load.cpp
+  map.cpp
+  menu.cpp
+  resume.cpp
+  save.cpp
+D:\Trash\ppvis\Ppvis_3\save.cpp(17,30): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Trash\ppvis\Ppvis_3\save.cpp(18,27): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  start.cpp
+  Создание кода...
   Ppvis_3.vcxproj -> D:\Trash\ppvis\Ppvis_3\x64\Debug\Ppvis_3.exe

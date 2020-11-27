@@ -19,7 +19,7 @@ public:
     void move(Map& userMap);            // movement
     int getGender();                  // return gender
     int getHunger();                 // return time without food
-    void checkPartner(std::vector<Whale>& vWolf, Map& userMap, bool& have_partn); //check for a partner for reproduction
+    void checkPartner(std::vector<Whale>& vWhale, Map& userMap, bool& have_partn); //check for a partner for reproduction
     void setHunger(int set_Hunger);      // set time without food
 
     friend std::istream& operator >> (std::istream& in, Whale& whale); //read from file

@@ -33,22 +33,22 @@ int Whale::getGender()
 {
     return gender;
 }
-void Whale::checkPartner(std::vector<Whale>& vWolf, Map& userMap, bool& have_partn)
+void Whale::checkPartner(std::vector<Whale>& vWhale, Map& userMap, bool& have_partn)
 {
     int xA = getX();
     int yA = getY();
     int gA = getGender();
-    int qw = vWolf.size();
+    int qw = vWhale.size();
 
     if (gA == 0) return;
     for (int iter = 0; iter < qw; iter++)
     {
-        bool lifeW = vWolf[iter].Ocean_life::getLife();
+        bool lifeW = vWhale[iter].Ocean_life::getLife();
         if (lifeW == true)
         {
-            int xW = vWolf[iter].Ocean_life::getX();
-            int yW = vWolf[iter].Ocean_life::getY();
-            int gW = vWolf[iter].Whale::getGender();
+            int xW = vWhale[iter].Ocean_life::getX();
+            int yW = vWhale[iter].Ocean_life::getY();
+            int gW = vWhale[iter].Whale::getGender();
 
             if ((xA == xW) && (yA == yW) && (gW != gA))
             {
