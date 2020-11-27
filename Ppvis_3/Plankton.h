@@ -21,7 +21,7 @@ public:
     void reduceHP(int reducing); // reduces HP
     void move(Map& userMap, std::vector<Plankton>& vPlankton); // plankton movement
     void checkCoordforNewBirth(std::vector<Plankton>& vPlankton, Map& userMap, bool* poz); // determines which tiles are suitable for reproduction
-    void PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, bool* poz, std::vector<int>& restRabX_iter); // determines plankton prescence on nearby tiles for possible restoration
+    void PlanktonCheck(std::vector<Plankton>& vPlankton, Map& userMap, bool* poz, std::vector<int>& restPlank_iter); // determines plankton prescence on nearby tiles for possible restoration
     void producePlankton(int& newX, int& newY, bool* poz); // chooses a tile for reproduction
     void planktonMovement(std::vector<Plankton>& vPlankton, int& newX, int& newY, Map& userMap); // chooses a tile for movement
 
